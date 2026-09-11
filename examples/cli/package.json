@@ -1,0 +1,21 @@
+{
+  "name": "openrubric-cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reference CLI for openrubric: pipe a transcript in, get a rubric-scored review out.",
+  "type": "module",
+  "bin": {
+    "openrubric": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "openrubric": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

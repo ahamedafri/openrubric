@@ -1,0 +1,19 @@
+{
+  "name": "openrubric-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=packages/core",
+    "test": "vitest run",
+    "lint": "tsc --noEmit -p packages/core/tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

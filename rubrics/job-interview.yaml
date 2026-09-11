@@ -1,0 +1,63 @@
+id: job-interview
+version: 1
+description: >
+  Behavioral / technical interview answers, candidate side. Judges
+  substance and structure, not politeness or grammar.
+language: en
+
+criteria:
+  - id: specificity
+    label: Concrete detail
+    guidance: >
+      A strong answer names real systems, numbers, tools, or outcomes.
+      Flag answers that would fit any candidate for any job — "I'm a
+      hard worker", "I improved things a lot" — with no concrete
+      example behind them.
+    severity_hints:
+      high: "no concrete example at all — pure generality"
+      medium: "one vague example, no numbers or specifics"
+      low: "mostly concrete, one hand-wave in an otherwise solid answer"
+    examples:
+      weak: "I improved performance a lot and the team was happy."
+      strong: "I cut p99 latency from 800ms to 210ms by batching the writes, which let us drop a read replica."
+
+  - id: structure
+    label: STAR structure
+    guidance: >
+      Situation -> Task -> Action -> Result. Flag answers that jump
+      straight to Action with no framing, or that describe actions at
+      length but never state a Result. A short, self-contained answer
+      to a narrow factual question doesn't need full STAR — only flag
+      this for answers to "tell me about a time..." style questions.
+
+  - id: hedging
+    label: Hedging and confidence
+    guidance: >
+      Spoken filler ("um", "like") is NOT an error on its own. Flag
+      *epistemic* hedging that weakens a claim the candidate should be
+      able to state plainly — "I think maybe", "sort of", "I guess",
+      "probably" — especially on questions about their own past work.
+    examples:
+      weak: "I think maybe it sort of helped with the deploy issues, probably."
+      strong: "It fixed the deploy issues — we went from weekly rollbacks to zero over the next quarter."
+
+  - id: relevance
+    label: Answers the question asked
+    guidance: >
+      Flag answers that drift into an adjacent but different story, or
+      that answer a question the interviewer didn't ask. A candidate
+      recovering mid-answer and landing the actual question is fine —
+      only flag answers that never get there.
+
+phrase_bank:
+  structure:
+    - '"The situation was ___. I was responsible for ___. I did ___. As a result, ___."'
+    - '"Before I get to what I did, here''s the context: ___."'
+  hedging:
+    - '"In my experience, ___." (instead of "I think maybe ___")'
+    - '"The result was ___." (instead of "it sort of worked out")'
+
+length:
+  min_subject_turns: 1
+  long_transcript_strategy: map-reduce
+  chunk_turns: 15

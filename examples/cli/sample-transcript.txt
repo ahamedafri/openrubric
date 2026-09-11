@@ -1,0 +1,6 @@
+Interviewer: Tell me about a time you fixed a hard bug.
+Me: Um, so there was like this thing where maybe the cache was sort of stale, I think.
+Interviewer: What was the actual impact, and how did you fix it?
+Me: I profiled the service and found the cache was serving stale keys after a deploy because we never invalidated on schema change. I added a version tag to the cache key, which cut p99 latency from 800ms to 210ms and stopped a whole class of on-call pages.
+Interviewer: Nice. Any regrets about how you handled it?
+Me: Not really.

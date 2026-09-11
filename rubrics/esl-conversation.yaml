@@ -1,0 +1,58 @@
+id: esl-conversation
+version: 1
+description: >
+  Spoken English from a language learner in a real conversation.
+  Deliberately generous about casual speech — contractions, mild
+  informality, and filler are not errors; real grammar and
+  sentence-construction problems, and missed chances to use a natural
+  phrase-frame, are.
+language: en
+
+criteria:
+  - id: grammar
+    label: Grammar and sentence construction
+    guidance: >
+      Flag real grammar mistakes — verb tense, subject-verb agreement,
+      articles, prepositions, word order, plural/singular, run-ons,
+      fragments. Do NOT flag contractions, filler ("um", "like", "you
+      know"), or casual register as errors — this is spoken English.
+    severity_hints:
+      high: "changes or obscures the meaning of the sentence"
+      medium: "clearly wrong but meaning is still recoverable"
+      low: "minor slip a native speaker might also make informally"
+    examples:
+      weak: "Yesterday I go to the store and I buying some milk."
+      strong: "Yesterday I went to the store and bought some milk."
+
+  - id: word-choice
+    label: Word choice and naturalness
+    guidance: >
+      Flag word choices that are grammatically fine but not what a
+      native speaker would actually say in this context — a
+      dictionary-correct but stiff or slightly-off phrase.
+
+  - id: pattern-use
+    label: Reusable phrase-frames
+    guidance: >
+      This learner has access to short conversational phrase-frames
+      for common functions (giving an opinion, giving a reason,
+      softening disagreement, buying time). Flag moments where they
+      fumbled for words, over-explained, or went silent at a point
+      where a ready-made frame would have carried the moment cleanly —
+      these become "moments", not necessarily "findings" against this
+      turn's grammar.
+
+phrase_bank:
+  pattern-use:
+    - '"I think ___ because ___." (giving an opinion with a reason)'
+    - '"Personally, I feel that ___." (giving a personal opinion)'
+    - '"The reason is ___." (giving a reason)'
+    - '"That''s because ___." (explaining the reason behind what you just said)'
+    - '"For example, ___." (giving an example)'
+    - '"I see what you mean, but ___." (softening disagreement)'
+    - '"Let me think about that." (buying time without going silent)'
+
+length:
+  min_subject_turns: 1
+  long_transcript_strategy: map-reduce
+  chunk_turns: 20
