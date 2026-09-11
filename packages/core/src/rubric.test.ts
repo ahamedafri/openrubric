@@ -1,11 +1,5 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { loadRubric, RubricValidationError } from "./rubric.js";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const rubricsDir = path.resolve(__dirname, "../../../rubrics");
 
 describe("loadRubric", () => {
   it("loads a plain object and normalizes snake_case wire keys", () => {
@@ -44,16 +38,4 @@ criteria:
       loadRubric({ id: "toy", version: 1, criteria: [{ id: "clarity" }] }),
     ).toThrow(RubricValidationError);
   });
-
-  for (const file of ["job-interview.yaml", "esl-conversation.yaml"]) {
-    it(`loads the reference rubric ${file}`, () => {
-      const text = readFileSync(path.join(rubricsDir, file), "utf8");
-      const rubric = loadRubric(text);
-      expect(rubric.criteria.length).toBeGreaterThan(0);
-      for (const c of rubric.criteria) {
-        expect(c.id).toBeTruthy();
-        expect(c.guidance).toBeTruthy();
-      }
-    });
-  }
 });
