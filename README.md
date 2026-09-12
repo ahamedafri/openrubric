@@ -9,7 +9,9 @@
   <a href="https://www.npmjs.com/package/openrubric"><img src="https://img.shields.io/npm/v/openrubric" alt="npm version"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/npm/l/openrubric" alt="license"></a>
   <a href="https://www.npmjs.com/package/openrubric"><img src="https://img.shields.io/npm/dm/openrubric" alt="npm downloads"></a>
+  <a href="https://badge.socket.dev/npm/package/openrubric/0.1.1"><img src="https://badge.socket.dev/npm/package/openrubric/0.1.1" alt="Socket Badge"></a>
 </p>
+
 
 Rubric-scored feedback on any conversation transcript. Bring your own
 LLM client, bring your own rubric.
