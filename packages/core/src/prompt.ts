@@ -13,6 +13,18 @@ function criteriaBlock(rubric: Rubric): string {
     .join("\n");
 }
 
+/**
+ * Renders the rubric's curated phrase_bank, if it has one, so the model
+ * grounds "suggestion"/"phrase" fields in phrases the rubric author
+ * actually picked rather than improvising from scratch every time.
+ */
+function phraseBankBlock(rubric: Rubric): string {
+  const entries = Object.entries(rubric.phraseBank ?? {}).filter(([, phrases]) => phrases.length > 0);
+  if (entries.length === 0) return "";
+  const lines = entries.map(([criterionId, phrases]) => `- ${criterionId}: ${phrases.join(" | ")}`);
+  return `\n\nSuggested phrases for "suggestion" and "phrase" fields, by criterion — prefer adapting one of these to the exact moment over inventing something unrelated:\n${lines.join("\n")}`;
+}
+
 export function buildChunkPrompt(params: {
   rubric: Rubric;
   transcript: Transcript;
@@ -30,7 +42,7 @@ export function buildChunkPrompt(params: {
 Rubric: ${rubric.description ?? rubric.id}
 
 Criteria (use ONLY these ids in "criterion" — never invent one):
-${criteriaBlock(rubric)}
+${criteriaBlock(rubric)}${phraseBankBlock(rubric)}
 
 Conversation window (line numbers are absolute positions, not the numbering below):
 ${windowText}
@@ -58,14 +70,23 @@ Respond ONLY with JSON, no prose outside it:
 }`;
 }
 
-export function buildOverallPrompt(params: { rubric: Rubric; subject: string; findingsSummary: string }): string {
-  const { rubric, subject, findingsSummary } = params;
+export function buildOverallPrompt(params: {
+  rubric: Rubric;
+  subject: string;
+  findingsSummary: string;
+  cleanCriteria: string[];
+}): string {
+  const { rubric, subject, findingsSummary, cleanCriteria } = params;
   return `You already extracted specific findings about ${subject}'s side of a conversation, judged against this rubric: ${rubric.description ?? rubric.id}.
 
 Findings summary (one line per finding, "turn: criterion (severity) - note"):
 ${findingsSummary || "(no findings were raised against any turn)"}
 
-Write a short overall review of ${subject}'s performance: 3-5 sentences, second person, honest about what worked and what didn't, specific rather than generic. Then score each criterion from 0.0 (fails it throughout) to 1.0 (fully meets it), weighing how often and how severely it came up above — no findings for a criterion generally means it scores high, not that it's unscored.
+Criteria with ZERO findings anywhere in this conversation: ${cleanCriteria.length ? cleanCriteria.join(", ") : "none"}. This is a fact, not an inference you need to draw — ${subject} handled every one of these criteria well throughout, with no exceptions found. Say so plainly and specifically for each one (name what they did right) rather than writing generic critique for a criterion that has zero findings against it.
+
+Base the review ONLY on the findings above — do not reach for generic interview/conversation critique that isn't backed by one of them.
+
+Write a short overall review of ${subject}'s performance: 3-5 sentences, second person, honest about what worked and what didn't, specific rather than generic. Then score each criterion from 0.0 (fails it throughout) to 1.0 (fully meets it), weighing how often and how severely it came up above — no findings for a criterion means it scores high, not that it's unscored.
 
 Criteria to score: ${rubric.criteria.map((c) => c.id).join(", ")}
 

@@ -132,7 +132,15 @@ async function runOverallPass(params: {
     .flatMap((t) => t.findings.map((f) => `turn ${t.ref}: ${f.criterion} (${f.severity}) - ${f.note}`))
     .join("\n");
 
-  const prompt = buildOverallPrompt({ rubric, subject, findingsSummary });
+  // An explicit computed tally, not left for the model to infer from a
+  // possibly-sparse prose summary — a criterion with zero findings across
+  // every turn is strong, and the overall pass needs that stated as a
+  // fact it's given, not a conclusion it has to notice on its own.
+  const cleanCriteria = rubric.criteria
+    .filter((c) => !turns.some((t) => t.findings.some((f) => f.criterion === c.id)))
+    .map((c) => c.id);
+
+  const prompt = buildOverallPrompt({ rubric, subject, findingsSummary, cleanCriteria });
   const raw = await client.complete({ prompt, temperature: 0.3 });
   const parsed = parseJsonLoose(raw) as { review?: unknown; scores?: Record<string, unknown> } | undefined;
   if (!parsed) throw new Error("openrubric: overall-pass response was not valid JSON");
