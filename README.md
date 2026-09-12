@@ -1,13 +1,15 @@
-# OpenRubric
+<h1 align="center">OpenRubric</h1>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ahamedafri/openrubric/main/docs/mascot.svg" width="160" alt="Rubi, the openrubric mascot">
 </p>
 
-[![CI](https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml/badge.svg)](https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/openrubric)](https://www.npmjs.com/package/openrubric)
-[![license](https://img.shields.io/npm/l/openrubric)](./LICENSE)
-[![npm downloads](https://img.shields.io/npm/dm/openrubric)](https://www.npmjs.com/package/openrubric)
+<p align="center">
+  <a href="https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml"><img src="https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://www.npmjs.com/package/openrubric"><img src="https://img.shields.io/npm/v/openrubric" alt="npm version"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/npm/l/openrubric" alt="license"></a>
+  <a href="https://www.npmjs.com/package/openrubric"><img src="https://img.shields.io/npm/dm/openrubric" alt="npm downloads"></a>
+</p>
 
 Rubric-scored feedback on any conversation transcript. Bring your own
 LLM client, bring your own rubric.
