@@ -1,4 +1,4 @@
-# openrubric
+# OpenRubric
 
 [![CI](https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml/badge.svg)](https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/openrubric)](https://www.npmjs.com/package/openrubric)
