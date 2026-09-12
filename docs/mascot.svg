@@ -1,0 +1,41 @@
+<svg width="200" height="206" viewBox="0 0 680 700" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Rubi, the openrubric owl mascot</title>
+  <desc>A friendly cartoon owl holding a clipboard with a checklist and a large teal checkmark.</desc>
+
+  <!-- ear tufts -->
+  <path d="M270 220 L250 150 L310 205 Z" fill="#D98E4E"/>
+  <path d="M410 220 L430 150 L370 205 Z" fill="#D98E4E"/>
+
+  <!-- wings -->
+  <ellipse cx="192" cy="470" rx="46" ry="92" fill="#C17D3E" transform="rotate(-18 192 470)"/>
+  <ellipse cx="488" cy="470" rx="46" ry="92" fill="#C17D3E" transform="rotate(18 488 470)"/>
+
+  <!-- feet -->
+  <ellipse cx="300" cy="660" rx="26" ry="16" fill="#F2A93B"/>
+  <ellipse cx="380" cy="660" rx="26" ry="16" fill="#F2A93B"/>
+
+  <!-- body -->
+  <ellipse cx="340" cy="400" rx="172" ry="202" fill="#D98E4E"/>
+
+  <!-- belly -->
+  <ellipse cx="340" cy="445" rx="102" ry="132" fill="#FBE7C6"/>
+
+  <!-- eyes -->
+  <circle cx="288" cy="392" r="58" fill="#FFFFFF"/>
+  <circle cx="392" cy="392" r="58" fill="#FFFFFF"/>
+  <circle cx="298" cy="404" r="28" fill="#2B2118"/>
+  <circle cx="382" cy="404" r="28" fill="#2B2118"/>
+  <circle cx="289" cy="393" r="8" fill="#FFFFFF"/>
+  <circle cx="373" cy="393" r="8" fill="#FFFFFF"/>
+
+  <!-- beak -->
+  <path d="M328 440 L340 465 L352 440 Z" fill="#F2A93B"/>
+
+  <!-- clipboard -->
+  <rect x="248" y="448" width="184" height="224" rx="14" fill="#F5F1E8" stroke="#C9BFA8" stroke-width="3"/>
+  <rect x="308" y="432" width="64" height="32" rx="7" fill="#9B9186"/>
+  <rect x="272" y="500" width="90" height="14" rx="7" fill="#D8D2C4"/>
+  <rect x="272" y="528" width="130" height="14" rx="7" fill="#D8D2C4"/>
+  <rect x="272" y="556" width="70" height="14" rx="7" fill="#D8D2C4"/>
+  <path d="M270 610 L305 648 L400 560" fill="none" stroke="#1D9E75" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

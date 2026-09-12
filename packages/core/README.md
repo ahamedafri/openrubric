@@ -1,5 +1,9 @@
 # openrubric
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ahamedafri/openrubric/main/docs/mascot.svg" width="160" alt="Rubi, the openrubric mascot">
+</p>
+
 [![CI](https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml/badge.svg)](https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/openrubric)](https://www.npmjs.com/package/openrubric)
 [![license](https://img.shields.io/npm/l/openrubric)](https://github.com/ahamedafri/openrubric/blob/main/LICENSE)
