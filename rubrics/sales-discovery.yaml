@@ -1,0 +1,66 @@
+id: sales-discovery
+version: 1
+description: >
+  A sales discovery call, rep side. Judges whether the call actually
+  uncovered enough to qualify the deal and moved it forward — not
+  politeness or product knowledge.
+language: en
+
+criteria:
+  - id: discovery-depth
+    label: Discovery depth
+    guidance: >
+      A strong discovery call surfaces budget, decision-making process,
+      the real pain driving the request, and timeline — before pitching.
+      Flag turns where the rep pitches features or jumps to a solution
+      without having asked about any of these first.
+    examples:
+      weak: "So let me tell you about our platform's key features..."
+      strong: "Before I walk you through anything — what's driving the need to solve this now, and who else weighs in on a decision like this?"
+
+  - id: talk-ratio
+    label: Listening vs monologuing
+    guidance: >
+      Flag long, uninterrupted turns where the rep talks at length
+      (a paragraph of pitch) instead of asking a question and letting
+      the prospect respond. A good discovery call is mostly the
+      prospect talking.
+
+  - id: objection-handling
+    label: Objection handling
+    guidance: >
+      When the prospect raises a concern (price, timing, a competitor,
+      "we're not sure we need this"), flag responses that dismiss or
+      gloss over it. A strong response acknowledges the specific
+      concern and addresses it directly, not with generic reassurance.
+    examples:
+      weak: "Don't worry, everyone says that at first — it'll be fine."
+      strong: "That's fair — a lot of teams worry about migration effort. What specifically about the switch concerns you most?"
+
+  - id: next-steps
+    label: Concrete next step
+    guidance: >
+      Flag a call ending without a specific, scheduled next action
+      (a named date/time, a named next meeting, a named deliverable
+      with a deadline). "I'll follow up" or "let's stay in touch" is
+      not a next step.
+    examples:
+      weak: "Great, I'll follow up with you soon."
+      strong: "I'll send the proposal by Friday — let's put 30 minutes on the calendar Monday to walk through it together."
+
+phrase_bank:
+  discovery-depth:
+    - '"What does budget look like for something like this?"'
+    - '"Who else would be involved in a decision like this?"'
+    - '"What''s driving the timeline here — is there a specific deadline?"'
+  objection-handling:
+    - '"That''s a fair concern — here''s how teams usually think about that: ___."'
+    - '"Can you tell me more about what''s behind that worry?"'
+  next-steps:
+    - '"Let''s put 30 minutes on the calendar for ___ to walk your team through this."'
+    - '"I''ll send ___ by ___ — does ___ work to reconvene?"'
+
+length:
+  min_subject_turns: 1
+  long_transcript_strategy: map-reduce
+  chunk_turns: 20

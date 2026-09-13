@@ -54,18 +54,21 @@ YAML file anyone can write and share.
 ## Use cases
 
 - **Interview prep** — mock interview transcript in, "you never stated a
-  result in answer 3" out.
+  result in answer 3" out. ([`job-interview.yaml`](./rubrics/job-interview.yaml))
 - **Sales call review** — discovery-call transcript in, "didn't ask about
-  budget, talked 68% of the time" out.
+  budget, talked 68% of the time" out. ([`sales-discovery.yaml`](./rubrics/sales-discovery.yaml))
 - **Language learning** — voice-conversation transcript in, line-by-line
-  grammar and phrase-frame suggestions out.
+  grammar and phrase-frame suggestions out. ([`esl-conversation.yaml`](./rubrics/esl-conversation.yaml))
 - **Support/success QA** — nightly batch review of call transcripts,
-  flagging the ones a human should actually listen to.
-- **Oral exams, presentations, difficult-conversation training, coaching
-  fidelity review, interviewer self-review, debate coaching, discourse
-  research** — same engine, a different rubric.
+  flagging the ones a human should actually listen to. ([`support-call.yaml`](./rubrics/support-call.yaml))
+- **Oral exams** — direct, structured, evidence-backed answers, not
+  stream-of-consciousness. ([`oral-exam.yaml`](./rubrics/oral-exam.yaml))
+- **Presentations, difficult-conversation training, coaching fidelity
+  review, interviewer self-review, debate coaching, discourse
+  research** — same engine, a different rubric you write.
 
-See [rubrics/](./rubrics) for two ready-to-use examples.
+See [rubrics/](./rubrics) for five ready-to-use examples: `job-interview`,
+`esl-conversation`, `sales-discovery`, `support-call`, and `oral-exam`.
 
 ## The rubric format
 
@@ -93,7 +96,7 @@ phrase_bank:
 ```
 
 See the full schema in [packages/core/src/rubric.ts](./packages/core/src/rubric.ts)
-and two complete examples in [rubrics/](./rubrics). **Contributing a
+and five complete examples in [rubrics/](./rubrics). **Contributing a
 rubric for a new use case is the easiest way to help this project** — no
 engine code required.
 
@@ -130,12 +133,21 @@ Without an API key set, the same command runs a heuristic fallback
 (filler/hedging/length signals only) instead of erroring — useful for
 demos, tests, and outages.
 
+## Try the LiveKit voice example
+
+[examples/livekit-voice](./examples/livekit-voice) is the "record a
+call, then review it" shape openrubric was pulled out of: a LiveKit
+Agents worker plays an AI interviewer over voice, and reviews the
+candidate's side with the `job-interview` rubric the moment they hang
+up. Needs a LiveKit Cloud project; see that example's own README for setup.
+
 ## Repo layout
 
 ```
-packages/core     openrubric itself — reviewTranscript(), rubric loading, types
-rubrics/          reference rubrics (job-interview, esl-conversation)
-examples/cli      a working CLI built on the library, including a Groq adapter
+packages/core         openrubric itself — reviewTranscript(), rubric loading, types
+rubrics/               five reference rubrics (job-interview, esl-conversation, sales-discovery, support-call, oral-exam)
+examples/cli           a working CLI built on the library, including a Groq adapter
+examples/livekit-voice a LiveKit Agents voice interviewer that reviews the call on hangup
 ```
 
 ## Development

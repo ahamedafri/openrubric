@@ -1,0 +1,65 @@
+id: support-call
+version: 1
+description: >
+  A customer support call or chat, agent side. Judges whether the
+  customer's actual problem got resolved and how the agent handled the
+  interaction — not procedural compliance with a script.
+language: en
+
+criteria:
+  - id: resolution-confirmed
+    label: Resolution confirmed
+    guidance: >
+      Flag an interaction that ends without the agent explicitly
+      confirming the customer's original issue is actually fixed —
+      "anything else I can help with?" is not the same as confirming
+      the specific problem is resolved.
+    examples:
+      weak: "Okay, is there anything else I can help you with today?"
+      strong: "Just to confirm — you're now able to log in and see your order history? Great, that's resolved then."
+
+  - id: empathy
+    label: Empathy for impact
+    guidance: >
+      When the customer expresses frustration, describes being
+      inconvenienced, or mentions a real consequence (missed a
+      deadline, lost money, wasted time), flag a response that jumps
+      straight to a fix or a script line without acknowledging what
+      that meant for them first.
+    examples:
+      weak: "Okay, let me check that for you."
+      strong: "That's frustrating, especially with your deadline today — let me get this sorted right now."
+
+  - id: clarity
+    label: Clear, plain-language explanation
+    guidance: >
+      Flag jargon or vague process description the customer likely
+      can't follow ("we'll escalate the ticket to tier 2 for
+      remediation"). A strong explanation says what's happening and
+      why in plain terms.
+
+  - id: ownership
+    label: Ownership of company-side mistakes
+    guidance: >
+      When something went wrong on the company's side (a bug, a billing
+      error, a missed commitment), flag deflection or blame-shifting
+      ("that's actually a known issue our engineering team hasn't
+      fixed yet" said dismissively). A strong response takes ownership
+      without over-apologizing.
+    examples:
+      weak: "That's a known bug, not much I can do about it."
+      strong: "That's on us — I'm sorry it caused you trouble. Here's what I'm doing right now to fix it."
+
+phrase_bank:
+  resolution-confirmed:
+    - '"Just to confirm — is ___ working the way you''d expect now?"'
+  empathy:
+    - '"That sounds really frustrating, especially given ___."'
+    - '"I can see why that would be a problem for you."'
+  ownership:
+    - '"That''s on us — here''s what I''m doing to fix it: ___."'
+
+length:
+  min_subject_turns: 1
+  long_transcript_strategy: map-reduce
+  chunk_turns: 20

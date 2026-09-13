@@ -1,0 +1,57 @@
+id: oral-exam
+version: 1
+description: >
+  A student's spoken answers in an oral exam, viva, or practice
+  question session. Judges whether answers are direct, structured, and
+  backed by evidence — not politeness or delivery style.
+language: en
+
+criteria:
+  - id: directness
+    label: Answers the question asked
+    guidance: >
+      Flag answers that drift into an adjacent topic, restate the
+      question without answering it, or answer a different question
+      than the one asked. A student recovering mid-answer and landing
+      the actual question by the end is fine — only flag answers that
+      never get there.
+
+  - id: structure
+    label: Organized answer
+    guidance: >
+      A strong answer states its claim first, then supports it — not
+      stream-of-consciousness that arrives at a point by accident.
+      Flag long answers with no discernible structure, especially
+      where the actual claim is buried or never stated plainly.
+
+  - id: evidence
+    label: Specific evidence
+    guidance: >
+      Flag answers that assert a claim without any specific supporting
+      example, data point, date, name, or mechanism — "it caused a lot
+      of problems" without saying which problems, for whom, or how.
+    examples:
+      weak: "The policy had a lot of negative effects on the economy."
+      strong: "The policy raised unemployment from 4% to 7% within a year, concentrated in manufacturing regions."
+
+  - id: hedging
+    label: Hedging on things the student should know
+    guidance: >
+      Spoken filler ("um", "like") is NOT an error. Flag epistemic
+      hedging that weakens a factual claim the student should be able
+      to state plainly — "I think it was maybe around 1990 or so,
+      I'm not totally sure" on a fact they were taught.
+
+phrase_bank:
+  structure:
+    - '"The short answer is ___. Here''s why: ___."'
+  evidence:
+    - '"For example, ___."'
+    - '"Specifically, ___."'
+  hedging:
+    - '"It was ___." (instead of "I think it was maybe ___")'
+
+length:
+  min_subject_turns: 1
+  long_transcript_strategy: map-reduce
+  chunk_turns: 20
