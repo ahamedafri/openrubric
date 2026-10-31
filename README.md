@@ -5,11 +5,21 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml"><img src="https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://www.npmjs.com/package/openrubric"><img src="https://img.shields.io/npm/v/openrubric" alt="npm version"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/npm/l/openrubric" alt="license"></a>
-  <a href="https://www.npmjs.com/package/openrubric"><img src="https://img.shields.io/npm/dm/openrubric" alt="npm downloads"></a>
-  <a href="https://badge.socket.dev/npm/package/openrubric/0.1.2"><img src="https://badge.socket.dev/npm/package/openrubric/0.1.2" alt="Socket Badge"></a>
+  <a href="https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml">
+    <img src="https://github.com/ahamedafri/openrubric/actions/workflows/ci.yml/badge.svg" alt="CI">
+  </a>
+  <a href="https://www.npmjs.com/package/openrubric">
+    <img src="https://img.shields.io/npm/v/openrubric" alt="npm version">
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/npm/l/openrubric" alt="license">
+  </a>
+  <a href="https://www.npmjs.com/package/openrubric">
+    <img src="https://img.shields.io/npm/dm/openrubric" alt="npm downloads">
+  </a>
+  <a href="https://badge.socket.dev/npm/package/openrubric/0.1.2">
+    <img src="https://badge.socket.dev/npm/package/openrubric/0.1.2" alt="Socket Badge">
+  </a>
 </p>
 
 
